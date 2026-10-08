@@ -6,7 +6,7 @@ on:                               # <<<   Event / Trigger
 
 jobs:
   job_1:                           # <<<   Job : contains a list of steps that run in the same runner
-    runs-on: windows-latest         # <<<   Runner / Environment
+    runs-on: ubuntu-latest         # <<<   Runner / Environment
 
     steps:
     # Checks-out your repository so your job can access it
@@ -15,11 +15,11 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: List files
-      run: ls -alh
+      run: lscpu
 
      # Runs a set of commands using the runners shell  
-    - name: Python version
+    - name: check user and working dir
       run: |
-        python -m pip install -r scripts/requirements-external-locations.txt
-        python scripts/validate-external-locations.py 
+        whoami
+        node -v 
       
